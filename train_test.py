@@ -141,7 +141,7 @@ def load_dataset(directory):
             faces = load_faces(path)
             # create labels
             labels = [subdir for _ in range(len(faces))]
-            print(">loaded {"+len(faces)+"} examples for class: "+ {subdir} )
+            print(">loaded {"+str(len(faces))+"} examples for class: "+ subdir )
             X.extend(faces)
             y.extend(labels)
         return asarray(X), asarray(y)
