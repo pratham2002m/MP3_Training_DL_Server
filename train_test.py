@@ -68,7 +68,7 @@ def create_augmented_image(path, background):
     res = augment_selfie(cv2.imread(path), background)
     os.chdir(folder)
     name, extension = os.path.splitext(filename)
-    new_filename = f"{name}_aug{extension}"
+    new_filename = name+"_aug"+extension
     cv2.imwrite(new_filename, res)
 
 
@@ -141,7 +141,7 @@ def load_dataset(directory):
             faces = load_faces(path)
             # create labels
             labels = [subdir for _ in range(len(faces))]
-            print(f">loaded {len(faces)} examples for class: {subdir}")
+            print(">loaded {"+len(faces)+"} examples for class: "+ {subdir} )
             X.extend(faces)
             y.extend(labels)
         return asarray(X), asarray(y)
