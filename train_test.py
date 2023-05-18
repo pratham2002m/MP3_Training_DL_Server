@@ -119,7 +119,7 @@ def load_faces( directory):
             # get face or augment it
             face = extract_face(path)
             if face is None:
-                print(f'I can`t find a person in {filename}!\nI will try to use augmentation.\n')
+                print('I can`t find a person in'+{filename}+'!\nI will try to use augmentation.\n')
                 back = cv2.imread('backg.jpg')
                 # rewrite_to_augmented(path, back)
                 continue
