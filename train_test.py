@@ -147,9 +147,9 @@ def load_dataset(directory):
         return asarray(X), asarray(y)
 
 
-train_X, train_Y = load_dataset('C:/Users/Prath/OneDrive/Desktop/Check files/Mini Project 1/Final Repo/dataset/train/')
+train_X, train_Y = load_dataset(os.getcwd() + '/dataset/train/')
 print(train_X.shape, train_Y.shape)
 
-savez_compressed('C:/Users/Prath/OneDrive/Desktop/Check files/Mini Project 1/Final Repo/face_train_dataset.npz', train_X, train_Y)# save arrays to one file in compressed format
-test_X, test_Y = load_dataset('C:/Users/Prath/OneDrive/Desktop/Check files/Mini Project 1/Final Repo/dataset/val/')
-savez_compressed('C:/Users/Prath/OneDrive/Desktop/Check files/Mini Project 1/Final Repo/face_test_dataset.npz', test_X, test_Y)
+savez_compressed(os.getcwd() + '/face_train_dataset.npz', train_X, train_Y)# save arrays to one file in compressed format
+test_X, test_Y = load_dataset(os.getcwd() + '/dataset/val/')
+savez_compressed(os.getcwd() + '/face_test_dataset.npz', test_X, test_Y)

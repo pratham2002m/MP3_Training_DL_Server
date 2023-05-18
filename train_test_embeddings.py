@@ -56,14 +56,14 @@ test = load('face_test_dataset.npz')
 
 train_X, train_Y, test_X, test_Y = train['arr_0'], train['arr_1'], test['arr_0'], test['arr_1']
 
-model = load_model('C:/Users/Prath/OneDrive/Desktop/Check files/Mini Project 1/Final Repo/facenet_keras.h5', compile=False)
+model = load_model(os.getcwd() + '/facenet_keras.h5', compile=False)
 
 print(train_X.shape)
 
 newTrainX = face_to_embedings(train_X, model)
 newTestX = face_to_embedings(test_X, model)
-savez_compressed('C:/Users/Prath/OneDrive/Desktop/Check files/Mini Project 1/Final Repo/face_train_embeddings.npz', newTrainX, train_Y)
-savez_compressed('C:/Users/Prath/OneDrive/Desktop/Check files/Mini Project 1/Final Repo/face_test_embeddings.npz',  newTestX, test_Y)
+savez_compressed(os.getcwd() + '/face_train_embeddings.npz', newTrainX, train_Y)
+savez_compressed(os.getcwd() + '/face_test_embeddings.npz',  newTestX, test_Y)
 
 
 print('Loaded: ', train_X.shape, train_Y.shape, test_X.shape, test_Y.shape)
@@ -72,8 +72,8 @@ print(newTrainX.shape)
 print(newTestX.shape)
 
 
-train = load('C:/Users/Prath/OneDrive/Desktop/Check files/Mini Project 1/Final Repo/face_train_embeddings.npz')
-test = load('C:/Users/Prath/OneDrive/Desktop/Check files/Mini Project 1/Final Repo/face_test_embeddings.npz')
+train = load(os.getcwd() + '/face_train_embeddings.npz')
+test = load(os.getcwd() + '/face_test_embeddings.npz')
 train_X, train_Y, test_X, test_Y = train['arr_0'], train['arr_1'], test['arr_0'], test['arr_1']
 print(f'Dataset: train={train_X.shape[0]}, test={test_X.shape[0]}')
 
